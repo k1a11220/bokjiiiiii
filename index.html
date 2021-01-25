@@ -3,35 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Bokjiiiii</title>
   </head>
   <body>
-    <header>Bokjiiiiii</header>
-    <section>
-      <select id="js-city" onchange="onChange(value)">
-        <option value="Seoul">Seoul</option>
-        <option value="Ansan">Ansan</option>
-        <option value="London">London</option>
-        <option value="Suwon">Suwon</option>
-      </select>
-      <select id="js-state" onchange="onChange(value)">
-        <option value="Seoul">Seoul</option>
-        <option value="Ansan">Ansan</option>
-        <option value="JS">London</option>
-        <option value="Suwon">Suwon</option>
-      </select>
-      <select id="js-country" onchange="onChange(value)">
-        <option value="82">Korea</option>
-        <option value="93">Afghanistan</option>
-        <option value="44">UK</option>
-        <option value="Suwon">Suwon</option>
-      </select>
-    </section>
-    <button onclick="getData()">Search</button>
-    <section>
-      <div>
-        <h1 id="js-result">Your current weather is</h1>
-      </div>
+    <section class="wrapper">
+      <header>
+        <h1>BBOKJIIIIII</h1>
+        <h2>나만을 위한 복지검색</h2>
+      </header>
+
+      <section class="select-area">
+        <ul>
+          <li class="option-container">
+            <h2 class="option-title">생애주기</h2>
+            <select id="js-life" onchange="onChange()">
+              <option value="none">선택하세요</option>
+              <option value="001">영유아</option>
+              <option value="002">아동</option>
+              <option value="003">청소년</option>
+              <option value="004">청년</option>
+              <option value="005">중장년</option>
+              <option value="006">노년</option>
+            </select>
+          </li>
+
+          <li class="option-container">
+            <h2 class="option-title">대상특성</h2>
+            <select id="js-char" onchange="onChange()">
+              <option value="none">선택하세요</option>
+              <option value="001">해당없음</option>
+              <option value="002">여성</option>
+              <option value="003">임산부</option>
+              <option value="004">장애</option>
+              <option value="005">국가유동자등 보훈대상자</option>
+              <option value="006">실업자</option>
+            </select>
+          </li>
+
+          <li class="option-container">
+            <h2 class="option-title">가구유형</h2>
+            <select id="js-indvd" onchange="onChange()">
+              <option value="none">선택하세요</option>
+              <option value="001">해당없음</option>
+              <option value="002">한부모</option>
+              <option value="003">다문화</option>
+              <option value="004">조손</option>
+              <option value="005">새터민</option>
+              <option value="006">소년소녀가장</option>
+              <option value="007">독거노인</option>
+            </select>
+          </li>
+
+          <li class="option-container">
+            <h2 class="option-title">욕구</h2>
+            <select id="js-desire" onchange="onChange()">
+              <option value="none">선택하세요</option>
+              <option value="0000000">안전</option>
+              <option value="1000000">건강</option>
+              <option value="2000000">일상생활유지</option>
+              <option value="3000000">가족관계</option>
+              <option value="4000000">사회적 관계</option>
+              <option value="500000">경제</option>
+              <option value="6000000">교육</option>
+              <option value="7000000">고용</option>
+              <option value="8000000">생활환경</option>
+              <option value="9000000">법률 및 권익보장</option>
+              <option value="A000000">기타</option>
+            </select>
+          </li>
+        </ul>
+      </section>
+
+      <section class="search-container">
+        <button onclick="getData()"><h4>결과보기</h4></button>
+        <button onclick="clearAll()"><h4>초기화</h4></button>
+      </section>
+
+      <section class="result-container">
+        <div>
+          <h2 id="js-result">살펴볼만한 복지를 가져왔습니다.</h2>
+        </div>
+        <div class="result-card">
+          <div>
+            <ul>
+              <li>
+                <h3>가사간병방문관리사지원사업</h3>
+              </li>
+              <li>
+                <h3>보건복지부</h3>
+              </li>
+            </ul>
+            <h4 class="result-description">
+              신체적, 정신적 이유로 원활한 일상생활과 사회활동이 어려운 저소득
+              취약계층에 대하여 재가간병 가사지원 등 사회복지서비스 제공으로
+              생활안정 및 자립기반 지원을 목적으로 함
+            </h4>
+          </div>
+        </div>
+      </section>
     </section>
   </body>
   <script src="./search.js"></script>

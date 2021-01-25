@@ -1,27 +1,36 @@
-const API_KEY = "8f4d0ab3c9180ae0820be2bd2d43b0a4";
-const Result = document.querySelector("#js-result");
-let CITY_NAME = document.querySelector("#js-city").value;
-let STATE_CODE = document.querySelector("#js-state").value;
-let COUNTRY_CODE = document.querySelector("#js-country").value;
+const API_KEY =
+  "qt%2BHSez0GjoTYvzN9D49cDlbHcVmSSxlKAUmIrLEqtHhnJBf6URyeHVJYuTIP13Hm148dCo3U7qu0QeSF%2FXoZw%3D%3D";
 
-function onChange(value) {
-  CITY_NAME = value;
-  return CITY_NAME;
+const LIFE = document.querySelector("#js-life");
+const CHAR = document.querySelector("#js-char");
+const INDVD = document.querySelector("#js-indvd");
+const DESIRE = document.querySelector("#js-desire");
+
+let LIFE_ARRAY = LIFE.value;
+let CHAR_ARRAY = CHAR.value;
+let INDVD_ARRAY = INDVD.value;
+let DESIRE_ARRAY = DESIRE.value;
+
+function onChange() {
+  LIFE_ARRAY = LIFE.value;
+  CHAR_ARRAY = CHAR.value;
+  INDVD_ARRAY = INDVD.value;
+  DESIRE_ARRAY = DESIRE.value;
+  console.log(LIFE_ARRAY, CHAR_ARRAY, INDVD_ARRAY, DESIRE_ARRAY);
 }
 
 function getData() {
   fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${CITY_NAME},${STATE_CODE},${COUNTRY_CODE}&appid=${API_KEY}`
+    `http://www.bokjiro.go.kr/openapi/rest/gvmtWelSvc?crtiKey=${API_KEY}&callTp=L&pageNum=1&numOfRows=100&lifeArray=${LIFE_ARRAY}&charTrgterArray=${CHAR_ARRAY}&trgterIndvdlArray=${INDVD_ARRAY}&desireArray=${DESIRE_ARRAY}`
   )
     .then(function (response) {
       return response.json();
     })
     .then(function (json) {
-      const CITY = json.name;
-      const COUNTRY = json.sys.country;
-      const weather = json.weather[1];
       console.log(json);
-      console.log(CITY, COUNTRY, weather);
-      Result.innerHTML = `Your current weather is ${CITY}, ${COUNTRY}`;
     });
 }
+
+// function init()
+
+// //  "0YkoGDtPqG%2FxNAZCeFtcfiOAkqQTu31i6eD5VF2JGaDx3oqn9Fu0DWOM7ZgNjysnSQwtuxzBY2W3QpglFBIYpQ%3D%3D"
