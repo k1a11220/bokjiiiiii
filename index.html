@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bokjiiiii</title>
+  </head>
+  <body>
+    <header>Bokjiiiiii</header>
+    <section>
+      <select id="js-city" onchange="onChange(value)">
+        <option value="Seoul">Seoul</option>
+        <option value="Ansan">Ansan</option>
+        <option value="London">London</option>
+        <option value="Suwon">Suwon</option>
+      </select>
+      <select id="js-state" onchange="onChange(value)">
+        <option value="Seoul">Seoul</option>
+        <option value="Ansan">Ansan</option>
+        <option value="JS">London</option>
+        <option value="Suwon">Suwon</option>
+      </select>
+      <select id="js-country" onchange="onChange(value)">
+        <option value="82">Korea</option>
+        <option value="93">Afghanistan</option>
+        <option value="44">UK</option>
+        <option value="Suwon">Suwon</option>
+      </select>
+    </section>
+    <button onclick="getData()">Search</button>
+    <section>
+      <div>
+        <h1 id="js-result">Your current weather is</h1>
+      </div>
+    </section>
+  </body>
+  <script src="./search.js"></script>
+</html>
