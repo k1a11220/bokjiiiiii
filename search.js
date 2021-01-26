@@ -21,7 +21,7 @@ function onChange() {
 
 function getData() {
   fetch(
-    `http://www.bokjiro.go.kr/openapi/rest/gvmtWelSvc?crtiKey=${API_KEY}&callTp=L&pageNum=1&numOfRows=100&lifeArray=${LIFE_ARRAY}&charTrgterArray=${CHAR_ARRAY}&trgterIndvdlArray=${INDVD_ARRAY}&desireArray=${DESIRE_ARRAY}`
+    `https://www.bokjiro.go.kr/openapi/rest/gvmtWelSvc?crtiKey=${API_KEY}&callTp=L&pageNum=1&numOfRows=100&lifeArray=${LIFE_ARRAY}&charTrgterArray=${CHAR_ARRAY}&trgterIndvdlArray=${INDVD_ARRAY}&desireArray=${DESIRE_ARRAY}`
   )
     .then(function (response) {
       return response.json();
