@@ -1,0 +1,13 @@
+{
+  "name": "bokjiiiiii",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/k1a11220/bokjiiiiii.git",
+  "author": "Beomsoo <k1a11220@noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "node-fetch": "^2.6.1",
+    "request": "^2.88.2"
+  }
+}
