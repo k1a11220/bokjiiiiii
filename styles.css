@@ -49,11 +49,16 @@ select {
   width: 210px;
   height: 33px;
   color: #afafaf;
+  background: #ffffff;
   font-weight: bold;
   border: none;
   border-radius: 11px;
   margin-top: 10px;
   padding-left: 7px;
+}
+
+select option {
+  background: #ffffff;
 }
 
 .select-area {
