@@ -27,7 +27,7 @@ function getData() {
       return response.json();
     })
     .then(function (json) {
-      console.log(json);
+      console.log(map(json.wantedList.servList));
     });
 }
 

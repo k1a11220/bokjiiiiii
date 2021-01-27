@@ -109,7 +109,7 @@ select {
   margin-top: 50px;
 }
 
-.result-container div h2 {
+.result-container h2 {
   color: #afafaf;
 }
 
@@ -149,4 +149,39 @@ select {
   font-size: 13px;
   padding-bottom: 30px;
   color: #afafaf;
+}
+
+@media only screen and (max-width: 650px) {
+  header {
+    width: 90vw;
+    margin-top: 50px;
+  }
+  .select-area {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    margin: 0;
+    background-color: rgb(53, 53, 53);
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+  .option-container h2 {
+    font-size: 1.2rem;
+  }
+  .search-container {
+    width: 90vw;
+    margin-top: 30px;
+  }
+  .result-card {
+    width: 90vw;
+    background-color: rgb(53, 53, 53);
+    border-radius: 15px;
+  }
+  .result-card h3 {
+    font-size: 1rem;
+  }
+  #js-result {
+    font-size: 1.2rem;
+  }
 }
