@@ -112,9 +112,10 @@ select option {
   border-radius: 10px;
   font-size: 12px;
   font-weight: bold;
-  background-color: rgb(53, 53, 53);
+  background: rgb(53, 53, 53);
   margin-right: 25px;
   color: #afafaf;
+  -webkit-appearance: none;
 }
 
 .resetBtn {
@@ -126,18 +127,24 @@ select option {
   font-weight: bold;
   margin-right: 25px;
   color: #afafaf;
-  background-color: #212121;
+  background: #212121;
   border: 2px solid #afafaf;
+  -webkit-appearance: none;
 }
 
 .result-container {
   width: 600px;
   display: flex;
   justify-content: flex-start;
-  margin-top: 50px;
 }
 
-.result-container h2 {
+.js-result {
+  width: 600px;
+  display: flex;
+  margin-top: 60px;
+}
+
+.js-result h2 {
   color: #afafaf;
 }
 
@@ -201,12 +208,16 @@ select option {
     width: 90vw;
     margin-top: 30px;
   }
+
   .result-container {
     width: 90vw;
     display: flex;
     justify-content: flex-start;
-    margin-top: 50px;
   }
+  .js-result {
+    width: 90vw;
+  }
+
   .result-card {
     width: 90vw;
     background-color: rgb(53, 53, 53);

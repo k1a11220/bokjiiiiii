@@ -2,10 +2,40 @@ import React, { useState } from "react";
 import axios from "axios";
 import XMLParser from "react-xml-parser";
 import { useForm } from "react-hook-form";
+import { CircularProgress } from "@material-ui/core";
 import "../styles.css";
 import ResultList from "../components/ResultList";
 
 const Home = () => {
+  async function parseStr(dataSet) {
+    const dataArr = new XMLParser().parseFromString(dataSet).children;
+    resultCount = dataArr.length; // 검색된 데이터의 수를 구한다. (dataArr length 에서 5개 값이 빠짐)
+    if (resultCount < 6) {
+      alert("검색결과가 없습니다."); // 검색결과가 없을경우 알람표시
+      setPrint(false);
+      setLoaded(false);
+    }
+    setState((preState) => {
+      return {
+        ...preState,
+        results: dataArr.slice(resultNumber, resultCount - resultNumber - 2),
+      };
+    });
+    setLoaded(false);
+    setPrint(true);
+    // console.log(state.results); //state.result == servs
+  }
+
+  async function getAPI() {
+    await axios({
+      method: "get",
+      url: `https://cors-anywhere.herokuapp.com/https://www.bokjiro.go.kr/openapi/rest/gvmtWelSvc?crtiKey=${API_KEY}&callTp=L&pageNum=1&numOfRows=100&lifeArray=${LIFE_VALUE}&charTrgterArray=${CHAR_VALUE}&trgterIndvdlArray=${INDVD_VALUE}&desireArray=${DESIRE_VALUE}`,
+    }).then(function (response) {
+      const dataSet = response.data;
+      parseStr(dataSet);
+    });
+  }
+
   const API_KEY =
     "qt%2BHSez0GjoTYvzN9D49cDlbHcVmSSxlKAUmIrLEqtHhnJBf6URyeHVJYuTIP13Hm148dCo3U7qu0QeSF%2FXoZw%3D%3D";
 
@@ -20,33 +50,8 @@ const Home = () => {
     results: [],
   }); //api 데이터를 담는 hooks
 
-  async function parseStr(dataSet) {
-    let servs = [];
-    const dataArr = new XMLParser().parseFromString(dataSet).children;
-    resultCount = dataArr.length; // 검색된 데이터의 수를 구한다. (dataArr length 에서 5개 값이 빠짐)
-    if (resultCount < 1) {
-      alert("검색결과가 없습니다."); // 검색결과가 없을경우 알람표시
-    }
-    servs = dataArr.slice(resultNumber, resultCount - resultNumber - 2); //4번째 값까지 필요없으므로 제거
-
-    setState((preState) => {
-      return {
-        ...preState,
-        results: dataArr.slice(resultNumber, resultCount - resultNumber - 2),
-      };
-    });
-    // console.log(state.results); //state.result == servs
-  }
-
-  async function getAPI() {
-    await axios({
-      method: "get",
-      url: `https://cors-anywhere.herokuapp.com/https://www.bokjiro.go.kr/openapi/rest/gvmtWelSvc?crtiKey=${API_KEY}&callTp=L&pageNum=1&numOfRows=100&lifeArray=${LIFE_VALUE}&charTrgterArray=${CHAR_VALUE}&trgterIndvdlArray=${INDVD_VALUE}&desireArray=${DESIRE_VALUE}`,
-    }).then(function (response) {
-      const dataSet = response.data;
-      parseStr(dataSet);
-    });
-  }
+  const [loaded, setLoaded] = useState(false);
+  const [print, setPrint] = useState(false);
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -54,8 +59,10 @@ const Home = () => {
     CHAR_VALUE = data.charArr;
     INDVD_VALUE = data.indvdArr;
     DESIRE_VALUE = data.desireArr;
+    setLoaded(true);
     getAPI();
   };
+
   return (
     <div className="wrapper">
       <>
@@ -131,11 +138,37 @@ const Home = () => {
             <input className="resetBtn" type="reset" value="초기화" />
           </div>
         </form>
+        <div className="js-result">
+          <h2>
+            {print === true
+              ? "지원 가능한 서비스를 살펴보세요."
+              : "서비스를 조회해보세요."}
+          </h2>
+        </div>
+
+        {loaded === true ? (
+          <>
+            <br />
+            <br />
+            <br />
+            <CircularProgress
+              className="spinner"
+              getdata={toString(state.getdata)}
+            />
+            <br />
+            <br />
+          </>
+        ) : null}
+
         <ResultList results={state.results} />
       </>
       <footer>
         <br />
-        <p>&copy; 2021 공사단</p>
+        <br />
+        <br />
+        <h4>&copy; 2021 공사단</h4>
+        <br />
+        <br />
         <br />
       </footer>
     </div>
