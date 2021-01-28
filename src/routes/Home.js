@@ -67,7 +67,7 @@ const Home = () => {
     <div className="wrapper">
       <>
         <header>
-          <h1>BBOKJIIIIII</h1>
+          <h1>BBOKJI</h1>
           <h2>나만을 위한 복지검색</h2>
         </header>
 
