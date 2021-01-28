@@ -18,7 +18,7 @@ const Home = () => {
 
   const [state, setState] = useState({
     results: [],
-  });
+  }); //api 데이터를 담는 hooks
 
   async function parseStr(dataSet) {
     let servs = [];
@@ -35,12 +35,7 @@ const Home = () => {
         results: dataArr.slice(resultNumber, resultCount - resultNumber - 2),
       };
     });
-    console.log(state.results); //state.result == servs
-    servs.map((post) => {
-      return console.log(
-        `제목 : ${post.children[6].value} 기관 : ${post.children[1].value} 설명: ${post.children[3].value}`
-      );
-    });
+    // console.log(state.results); //state.result == servs
   }
 
   async function getAPI() {
@@ -138,6 +133,11 @@ const Home = () => {
         </form>
         <ResultList results={state.results} />
       </>
+      <footer>
+        <br />
+        <p>&copy; 2021 공사단</p>
+        <br />
+      </footer>
     </div>
   );
 };
