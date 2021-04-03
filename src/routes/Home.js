@@ -32,6 +32,7 @@ const Home = () => {
       url: `https://cors-anywhere.herokuapp.com/https://www.bokjiro.go.kr/openapi/rest/gvmtWelSvc?crtiKey=${API_KEY}&callTp=L&pageNum=1&numOfRows=100&lifeArray=${LIFE_VALUE}&charTrgterArray=${CHAR_VALUE}&trgterIndvdlArray=${INDVD_VALUE}&desireArray=${DESIRE_VALUE}`,
     }).then(function (response) {
       const dataSet = response.data;
+      console.log(dataSet);
       parseStr(dataSet);
     });
   }
@@ -62,7 +63,7 @@ const Home = () => {
     setLoaded(true);
     getAPI();
   };
-
+  console.log(state.results);
   return (
     <div className="wrapper">
       <>
