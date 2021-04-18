@@ -12,7 +12,7 @@ const Home = () => {
     console.log(dataArr);
     resultCount = dataArr.length; // 검색된 데이터의 수를 구한다. (dataArr length 에서 5개 값이 빠짐)
     console.log(resultCount);
-    if (resultCount < 6) {
+    if (resultCount < 5) {
       alert("검색결과가 없습니다."); // 검색결과가 없을경우 알람표시
       setPrint(false);
       setLoaded(false);
