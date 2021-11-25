@@ -1,5 +1,8 @@
 # BBOKJI, 간편 복지검색 서비스
-<img width="1680" alt="PC" src="https://blog.beomsoo.me/d9453531f745b9cecb7c6101d58ad14f/Search.gif">
+
+![Home Screen](https://blog.beomsoo.me/d9453531f745b9cecb7c6101d58ad14f/Search.gif)
+
+https://blog.beomsoo.me/d9453531f745b9cecb7c6101d58ad14f/Search.gif
 
 기존 복지검색 프로세스의 복잡함을 해결하고자 개발한 간편 복지검색 MVP 입니다.
 한국사회보장정보원 복지서비스 OPENAPI를 활용하여 제작했습니다.
