@@ -1,6 +1,7 @@
 # BBOKJI, 간편 복지검색 서비스
 
-<img width="1680" alt="PC" src="https://blog.beomsoo.me/d9453531f745b9cecb7c6101d58ad14f/Search.gif">
+
+![Screen](./Search.gif)
 <img width="1680" alt="PC" src="https://user-images.githubusercontent.com/44296964/143392416-c022b9ac-622a-4165-937e-b5bb01452638.png">
 
 
