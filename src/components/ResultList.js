@@ -9,9 +9,10 @@ const ResultList = (results) => {
           return (
             <ResultCard
               key={post.children[0].value} // key는 inqNum 고유번호로 지정함.
-              title={post.children[6].value}
+              title={post.children[8].value}
               ministry={post.children[1].value}
-              details={post.children[3].value}
+              details={post.children[5].value}
+              link={post.children[6].value}
             />
           );
         })}

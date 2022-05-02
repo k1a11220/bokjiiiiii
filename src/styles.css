@@ -186,6 +186,10 @@ select option {
   color: #afafaf;
 }
 
+.link-style {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 650px) {
   header {
     width: 90vw;
