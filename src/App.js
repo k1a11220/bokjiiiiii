@@ -30,7 +30,7 @@ function App() {
   async function getAPI() {
     await axios({
       method: "get",
-      url: `https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/B554287/NationalWelfareInformations/NationalWelfarelist?serviceKey=${API_KEY}&callTp=L&pageNo=1&numOfRows=10&lifeArray=${LIFE_VALUE}&charTrgterArray=${CHAR_VALUE}&desireArr=${DESIRE_VALUE}&srchKeyCode=001`,
+      url: `https://cors-anywhere-sbs.herokuapp.com/http://apis.data.go.kr/B554287/NationalWelfareInformations/NationalWelfarelist?serviceKey=${API_KEY}&callTp=L&pageNo=1&numOfRows=10&lifeArray=${LIFE_VALUE}&charTrgterArray=${CHAR_VALUE}&desireArr=${DESIRE_VALUE}&srchKeyCode=001`,
     }).then(function (response) {
       const dataSet = response.data;
       parseStr(dataSet);

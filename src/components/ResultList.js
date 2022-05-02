@@ -8,11 +8,20 @@ const ResultList = (results) => {
         {results.results.map((post) => {
           return (
             <ResultCard
-              key={post.children[0].value} // key는 inqNum 고유번호로 지정함.
-              title={post.children[8].value}
-              ministry={post.children[1].value}
-              details={post.children[5].value}
-              link={post.children[6].value}
+              key={post.children.find((child) => child.name === "inqNum").value} // key는 inqNum 고유번호로 지정함.
+              title={
+                post.children.find((child) => child.name === "servNm").value
+              }
+              ministry={
+                post.children.find((child) => child.name === "jurMnofNm").value
+              }
+              details={
+                post.children.find((child) => child.name === "servDgst").value
+              }
+              link={
+                post.children.find((child) => child.name === "servDtlLink")
+                  .value
+              }
             />
           );
         })}
